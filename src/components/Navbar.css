@@ -96,6 +96,7 @@ a {
       left: 0;
       text-align: center;
       padding: 16px 0;
+      z-index: 1;
     }
   
     .menu li:hover {
