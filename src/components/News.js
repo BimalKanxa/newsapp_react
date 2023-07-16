@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 export class News extends Component {
   static defaultProps = {
     country : 'in',
-    pageSize : 15,
+    pageSize : 14,
     category: 'general'
   }
   static propTypes = {
@@ -69,7 +69,7 @@ export class News extends Component {
       }); 
     }
     else {
-      alert("end of page")
+      alert("No More Articles To Display")
 
     }
   }
@@ -86,7 +86,7 @@ export class News extends Component {
           {!this.state.loading && this.state.articles.map((element) => {
             return (
               <div className="col-md-4 my-2" key={element.url}>
-                <NewsItem title={element.title ? element.title : ""} description={element.description ? element.description : ""} imageUrl={element.urlToImage ? element.urlToImage : "https://thumbs.dreamstime.com/b/news-newspapers-folded-stacked-word-wooden-block-puzzle-dice-concept-newspaper-media-press-release-42301371.jpg"} newsUrl={element.url} />
+                <NewsItem title={element.title ? element.title : ""} description={element.description ? element.description : ""} imageUrl={element.urlToImage ? element.urlToImage : "https://thumbs.dreamstime.com/b/news-newspapers-folded-stacked-word-wooden-block-puzzle-dice-concept-newspaper-media-press-release-42301371.jpg"} author={element.author?element.author:"Unknown"} date={element.publishedAt} newsUrl={element.url} />
               </div>
             )
           })}
@@ -97,7 +97,7 @@ export class News extends Component {
         <div className="container">
           <div className="d-flex justify-content-between my-3">
             <button disabled={this.state.page <= 1} type='button' className='btn btn-dark' onClick={this.handlePrevClick}>&larr; Previous Page</button>
-            <button disabled={this.state.page + 1 > Math.ceil(this.state.totalResults / 21)} type='button' className='btn btn-dark' onClick={this.handleNextClick}>Next Page &rarr;</button>
+            <button disabled={this.state.page + 1 > Math.ceil(this.state.totalResults / 14)} type='button' className='btn btn-dark' onClick={this.handleNextClick}>Next Page &rarr;</button>
           </div>
 
         </div>
