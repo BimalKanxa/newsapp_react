@@ -16,7 +16,7 @@ import {
 // import NewsItem from './components/NewsItem';
 
 
-export default function App(){
+const App = () => {
 
   let pageSize = 11
 
@@ -58,7 +58,7 @@ export default function App(){
     )
   }
 
-
+export default App;
 
   
 
